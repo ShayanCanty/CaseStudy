@@ -39,7 +39,7 @@ def generate_recommendations(text, model_name='facebook/bart-large-cnn'):
     summary = summarization_pipeline(text, max_length=200, min_length=30, do_sample=False)[0]['summary_text']
 
     # Here, you can add specific prompt-tuning or strategy generation rules
-    recommendation_prompt = f"Based on this report: {summary}. What are the key strategic recommendations for the health insurance industry?"
+    recommendation_prompt = f"Based on this report and previous reports: {summary}. What are the key strategic recommendations for the health insurance industry?"
 
     # Generate recommendation
     model_name = "gpt2"  # You can use other LLMs like GPT-3, or even fine-tuned models
