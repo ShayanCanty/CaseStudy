@@ -32,13 +32,13 @@ jobs:
 
       # Step 4: Build the Docker image from the src folder
       - name: Build Docker image
-        run: docker build -t my-app:latest ./src
+        run: docker build -t case-study-repo:latest ./src
 
       # Step 5: Tag the Docker image with the ECR repository URI
       - name: Tag Docker image
-        run: docker tag my-app:latest 054037122084.dkr.ecr.us-east-2.amazonaws.com/my-app:latest
+        run: docker tag case-study-repo:latest 054037122084.dkr.ecr.us-east-2.amazonaws.com/case-study-repo:latest
 
       # Step 6: Push the Docker image to Amazon ECR
       - name: Push Docker image to ECR
-        run: docker push 054037122084.dkr.ecr.us-east-2.amazonaws.com/my-app:latest
+        run: docker push 054037122084.dkr.ecr.us-east-2.amazonaws.com/case-study-repo:latest
 
