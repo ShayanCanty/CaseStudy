@@ -55,21 +55,22 @@ def generate_recommendations(text, model_name='facebook/bart-large-cnn'):
     return recommendation
 
 
-# if __name__ == "__main__":
-#     # List and download files from S3
-#     files = list_files_in_s3(BUCKET_NAME, FOLDER_NAME)
+if __name__ == "__main__":
+    # List and download files from S3
+    files = list_files_in_s3(BUCKET_NAME, FOLDER_NAME)
     
-#     for file_key in files:
-#         local_file_name = file_key.split('/')[-1]  # Extract file name
-#         download_file_from_s3(BUCKET_NAME, file_key, local_file_name)
+    for file_key in files:
+        local_file_name = file_key.split('/')[-1]  # Extract file name
+        download_file_from_s3(BUCKET_NAME, file_key, local_file_name)
 
-#         # Read the report content
-#         report_content = read_file(local_file_name)
+        # Read the report content
+        report_content = read_file(local_file_name)
 
-#         # Generate recommendations based on the report
-#         recommendations = generate_recommendations(report_content)
+        # Generate recommendations based on the report
+        recommendations = generate_recommendations(report_content)
         
-#         print(f"Recommendations for {local_file_name}:\n{recommendations}\n")
+        print(f"Recommendations for {local_file_name}:\n{recommendations}\n")
+        
 def add(a, b):
     return a + b
 
