@@ -54,6 +54,19 @@ def generate_recommendations(text, model_name='facebook/bart-large-cnn'):
     recommendation = tokenizer.decode(outputs[0], skip_special_tokens=True)
     return recommendation
 
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        raise ValueError("Cannot divide by zero")
+    return a / b
 
 if __name__ == "__main__":
     # List and download files from S3
@@ -70,18 +83,5 @@ if __name__ == "__main__":
         recommendations = generate_recommendations(report_content)
         
         print(f"Recommendations for {local_file_name}:\n{recommendations}\n")
-  
-        
-def add(a, b):
-    return a + b
 
-def subtract(a, b):
-    return a - b
 
-def multiply(a, b):
-    return a * b
-
-def divide(a, b):
-    if b == 0:
-        raise ValueError("Cannot divide by zero")
-    return a / b
