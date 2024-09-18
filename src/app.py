@@ -70,6 +70,7 @@ if __name__ == "__main__":
         recommendations = generate_recommendations(report_content)
         
         print(f"Recommendations for {local_file_name}:\n{recommendations}\n")
+  
         
 def add(a, b):
     return a + b
