@@ -1,0 +1,37 @@
+# .github/workflows/unittest.yml
+name: Run Unit Tests
+
+# Trigger the workflow on a pull request to the main branch
+on:
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python (version 3.9 is used as an example)
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # Step 3: Install dependencies (assumes you have a requirements.txt)
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r src/requirements.txt
+
+      # Step 4: Run unit tests (assumes tests are in a `tests/` folder)
+      - name: Run unit tests
+        run: |
+          python -m unittest discover -s tests
+
+    # Ensure that if tests fail, the pipeline fails
+    if: failure()
