@@ -34,4 +34,4 @@ jobs:
           python -m unittest discover -s tests
 
     # Ensure that if tests fail, the pipeline fails
-    if: failure()
+    # if: failure()s
